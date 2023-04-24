@@ -1,7 +1,8 @@
 #include "udpchannel.h"
 
-UdpChannel::UdpChannel(std::string ip, uint32_t port)
+UdpChannel::UdpChannel(std::string ip, uint32_t port,const void * output)
 {
+    _output = output;
 
     socket_connect = socket(AF_INET, SOCK_DGRAM ,0);
     if(socket_connect < 0){
@@ -34,6 +35,10 @@ UdpChannel::UdpChannel(std::string ip, uint32_t port)
                                        (struct sockaddr *)&client, reinterpret_cast<socklen_t *>(&len));
         if(bytes_received < 0 )
             std::cout << "byte_received error: "<<errno <<std::endl;
+
+        if(_output != nullptr)
+            memcmp(_output,buffer,bytes_received);
+
         std::string message(buffer, bytes_received);
 
 #ifdef DEBUG

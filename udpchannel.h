@@ -8,9 +8,10 @@
 class UdpChannel
 {
 public:
-    UdpChannel(std::string ip, uint32_t port);
+    UdpChannel(std::string ip, uint32_t port, const void * output);
 private:
     int socket_connect;
+    const void* _output;
 };
 
 #endif // UDPCHANNEL_H
