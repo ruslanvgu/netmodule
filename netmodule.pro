@@ -12,6 +12,7 @@ SOURCES += \
         inputchanneludp.cpp \
         main.cpp \
         netmodule.cpp \
+        outputchanneludp.cpp \
         tcpchannel.cpp \
         udpchannel.cpp
 
@@ -25,5 +26,6 @@ HEADERS += \
     headers.h \
     inputchanneludp.h \
     netmodule.h \
+    outputchanneludp.h \
     tcpchannel.h \
     udpchannel.h

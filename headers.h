@@ -12,5 +12,6 @@
 #include <iostream>
 #include <list>
 #include <map>
+#include <limits>
 
 #endif // HEADERS_H

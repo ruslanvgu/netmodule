@@ -39,7 +39,6 @@ TcpChannel::TcpChannel(std::string ip, uint32_t port, uint32_t queueQuery):
 
     socklen_t cs_addrsize = sizeof (client_addr);
     int new_sock = accept(socket_connect, (struct sockaddr *) &client_addr, &cs_addrsize);//слушающий сокет и структура клиента
-
     if(new_sock < 0){
         std::cout << "error accept: "<< errno << std::endl;
         //return;
@@ -48,7 +47,6 @@ TcpChannel::TcpChannel(std::string ip, uint32_t port, uint32_t queueQuery):
     char buffer[256];
     while(1)
     {
-
         int len = recv(new_sock, buffer, sizeof(buffer), 0);
         std::cout << buffer<<std::endl;
 #ifdef DEGUG
