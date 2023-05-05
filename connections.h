@@ -1,27 +1,27 @@
 #ifndef CONNECTIONS_H
 #define CONNECTIONS_H
 
-#include "headers.h"
+#include <headers.h>
 
-class Connection
-{
-    uint32_t id;
-    int _socket;
+class Channel{
+    uint32_t _id;
+    uint32_t _protocol;
     std::string _ip;
     uint32_t _port;
-    std::string type;
-
+    bool _status;
 public:
-    Connections();
+    Channel(uint32_t id,uint32_t protocol,std::string ip,uint32_t port,bool status):
+        _id(id),_protocol(protocol),_ip(ip),_port(port),_status(status)
+    {}
 };
 
 class Connections
 {
+
+    std::map<uint32_t, Channel> table;
 public:
     Connections();
 
-private:
-    std::unordered_map<int,Connection> table;
 };
 
 #endif // CONNECTIONS_H

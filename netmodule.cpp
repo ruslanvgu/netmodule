@@ -4,7 +4,16 @@
 NetModule::NetModule()
 
 {
-    InputChannelUdp* udp = new InputChannelUdp("127.0.0.1",12345);
+
 
 
 }
+
+void NetModule::createUdp(std::string ip, uint32_t port)
+{
+
+    InputChannelUdp* udp = new InputChannelUdp(ip,port);
+
+}
+
+

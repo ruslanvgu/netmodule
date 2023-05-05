@@ -8,6 +8,8 @@ class NetModule
 {
 public:
     NetModule();
+    void createUdp(std::string ip, uint32_t port);
+
 private:
 
 };
